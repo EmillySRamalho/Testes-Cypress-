@@ -29,7 +29,18 @@ describe('Preencher o formulário de teste Cypress', () => {
    // adicionar imagem, nesse caso você deve ter a imagem "foto.jpg" na pasta cypress/fixtures
     cy.get('#arquivo').attachFile('foto.jpg');
 
+    // Selecionar o gênero desejado.
+    cy.get('input[name="genero"]').check('F');
 
+    cy.get('input[name="genero"]').check('M');
+
+    // Selecionar as opções de interesse
+    cy.get('input[name="interesse"]').check(['esporte', 'música', 'tecnologia']);
+
+    // Selecionar o país desejado
+    cy.get('select[name="pais"]').select('Brasil');
+
+    cy.get('select[name="pais"]').select('Estados Unidos');
   })
 
 })
