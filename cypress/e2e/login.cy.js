@@ -21,7 +21,7 @@ describe('Preencher o formulário de teste Cypress', () => {
     cy.get('#data').type('2000-02-25')
 
    // Preencher campo de telefone 
-    cy.get('#telefone').type('11987654321')
+    cy.get('#telefone').type('11-98765-4321')
 
     // Preencher campo de URL
     cy.get('#url').type('https://example.com')
@@ -53,9 +53,11 @@ describe('Preencher o formulário de teste Cypress', () => {
     // Ajustar o nível de satisfação
     cy.get('#satisfacao').invoke('val', 5).trigger('input');
 
-    
-
+    // Aceitar os termos e condições
     cy.get('#termos').check();
+
+    // Enviar o formulário
+    cy.get('button[type="submit"]').click();
   })
 
 });
