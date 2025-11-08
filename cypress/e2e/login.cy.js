@@ -58,6 +58,9 @@ describe('Preencher o formulário de teste Cypress', () => {
 
     // Enviar o formulário
     cy.get('button[type="submit"]').click();
+
+    // Verificar se a mensagem de sucesso apareceu
+    cy.contains('Formulário enviado com sucesso!').should('be.visible');
   })
 
 });
