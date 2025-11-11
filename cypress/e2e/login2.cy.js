@@ -63,10 +63,28 @@ describe('Preencher o formulário de teste Cypress', () => {
     cy.get('select[name="pais"]').select(pais)
 
     // Comentário, aqui o comentário sera exibido de forma aleatoria
-    
+    const comentarios = [
+        `Este é um comentário de teste para o formulário Cypress.`,
+        `O formulário está funcionando perfeitamente!`,
+        `Testando a funcionalidade de envio de formulários.`,
+        `Cypress é uma ótima ferramenta para testes automatizados.`,
+        `Este é apenas um texto genérico usado para testes automatizados. O objetivo é verificar se o campo aceita entradas válidas e se o comportamento do formulário está conforme o esperado`
+    ]
+    const comentario = comentarios[Math.floor(Math.random() * comentarios.length)]
+    cy.get('textarea[name="comentario"]').type(comentario)
 
+    // Ajustar o nível de satisfação, aqui o nível de satisfação sera gerado aleatoriamente entre 1 e 10.
+    const satisfacao = Math.floor(Math.random() * 10) + 1
+    cy.get('#satisfacao').invoke('val', satisfacao).trigger('input');
 
+    // Aceitar os termos e condições
+    cy.get('#termos').check();
 
+    // Enviar o formulário
+    cy.get('button[type="submit"]').click();
+
+     // Verificar se a mensagem de sucesso apareceu
+    cy.contains('Formulário enviado com sucesso!').should('be.visible');
 
 
 })
