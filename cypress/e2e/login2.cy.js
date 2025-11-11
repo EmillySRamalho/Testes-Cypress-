@@ -33,6 +33,15 @@ describe('Preencher o formulário de teste Cypress', () => {
     // Preencher campo de telefone
     const telefone = `11-9${Math.floor(1000 + Math.random() * 9000)}-${Math.floor(1000 + Math.random() * 9000)}`
     cy.get('#telefone').type(telefone)
+
+    // Preencher campo de URL
+    const url = `https://www.${nome.toLowerCase().replace(/ /g, '')}.com`
+    cy.get('#url').type(url)
+
+    // adicionar imagem, nesse caso você deve ter a imagem "foto.jpg" na pasta cypress/fixtures
+    cy.get('#arquivo').attachFile('foto.jpg');
+
     
+
 })
 });
