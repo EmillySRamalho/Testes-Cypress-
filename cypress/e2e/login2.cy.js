@@ -52,6 +52,10 @@ describe('Preencher o formulário de teste Cypress', () => {
             cy.get('input[name="genero"]').check('F');
         }
 
+    // Selecionar as opções de interesse, de forma aleatória.
+    const interesses = ['esporte', 'música', 'tecnologia', 'arte', 'viagem', 'leitura' , 'outro']
+    const interessesSelecionados = interesses.filter(() => Math.random() < 0.5)
+    cy.get('input[name="interesse"]').check(interessesSelecionados)
 
 
 
