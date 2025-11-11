@@ -11,6 +11,7 @@ describe('Preencher o formulário de teste Cypress', () => {
     const nome = nomes[Math.floor(Math.random() * nomes.length)]
     cy.get('#nome').type(nome)
 
+
     // Gerar email baseado no nome selecionado, substituindo espaços por pontos, tudo em minúsculo.
     const email = nome.toLowerCase().replace(/ /g, '.') + '@example.com'
     cy.get('#email').type(email)
@@ -41,7 +42,20 @@ describe('Preencher o formulário de teste Cypress', () => {
     // adicionar imagem, nesse caso você deve ter a imagem "foto.jpg" na pasta cypress/fixtures
     cy.get('#arquivo').attachFile('foto.jpg');
 
-    
+    // Selecionar o gênero desejado, baseado no nome selecionado.
+        const nomesMasculinos = ['Lucas Almeida', 'Pedro Silva', 'João Santos', 'Rafael Oliveira', 'Gabriel Pereira', 'Felipe Rodrigues', 'Bruno Carvalho', 'Thiago Mendes', 'Gustavo Nunes', 'Diego Cunha']
+        const nomesFemininos = ['Ana Souza', 'Mariana Costa', 'Carla Ribeiro', 'Beatriz Fernandes', 'Juliana Lima', 'Camila Gomes', 'Larissa Martins', 'Amanda Dias', 'Sofia Araújo', 'Isabela Rocha']
+
+        if (nomesMasculinos.includes(nome)) {
+            cy.get('input[name="genero"]').check('M');
+        } else if (nomesFemininos.includes(nome)) {
+            cy.get('input[name="genero"]').check('F');
+        }
+
+
+
+
+
 
 })
 });
