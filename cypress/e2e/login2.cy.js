@@ -57,6 +57,14 @@ describe('Preencher o formulário de teste Cypress', () => {
     const interessesSelecionados = interesses.filter(() => Math.random() < 0.5)
     cy.get('input[name="interesse"]').check(interessesSelecionados)
 
+    // Selecionar o país desejado, de forma aleatória.
+    const paises = ['Brasil', 'Estados Unidos', 'Canadá', 'Reino Unido', 'Alemanha', 'França', 'Austrália', 'Japão', 'China', 'Índia']
+    const pais = paises[Math.floor(Math.random() * paises.length)]
+    cy.get('select[name="pais"]').select(pais)
+
+    // Comentário, aqui o comentário sera exibido de forma aleatoria
+    
+
 
 
 
