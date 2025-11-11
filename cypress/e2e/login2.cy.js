@@ -23,5 +23,16 @@ describe('Preencher o formulário de teste Cypress', () => {
     const idade = Math.floor(Math.random() * 60) + 15
     cy.get('#idade').type(idade.toString())
 
+    // Selecionar data desejada, aqui tera uma diversidade na geração de datas aleatórias entre os anos 1970 e 1999.
+    const ano = Math.floor(Math.random() * 40) + 1970
+    const mes = String(Math.floor(Math.random() * 12) + 1).padStart(2, '0')
+    const dia = String(Math.floor(Math.random() * 28) + 1).padStart(2, '0')
+    const data = `${ano}-${mes}-${dia}`
+    cy.get('#data').type(data)
+
+    // Preencher campo de telefone
+    const telefone = `11-9${Math.floor(1000 + Math.random() * 9000)}-${Math.floor(1000 + Math.random() * 9000)}`
+    cy.get('#telefone').type(telefone)
+    
 })
 });
