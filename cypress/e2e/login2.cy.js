@@ -17,8 +17,11 @@ describe('Preencher o formulário de teste Cypress', () => {
 
     // Preencher o campo de senha
      const senha = `senha${Math.floor(Math.random() * 1000)}`
-    cy.get('#senha').type(senha)
+     cy.get('#senha').type(senha)
 
+    // Selecionar campo de idade, esses valores de idade são gerados aleatoriamente entre 15 e 75 anos. o bom para ter uma variação maior de idades.
+    const idade = Math.floor(Math.random() * 60) + 15
+    cy.get('#idade').type(idade.toString())
 
 })
 });
